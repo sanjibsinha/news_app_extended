@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_extended/controllers/main_drawer.dart';
 import '../dummy_data.dart';
 
 class NewsDetailScreen extends StatelessWidget {
@@ -39,6 +40,7 @@ class NewsDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(selectedNews.title),
       ),
+      drawer: const MainDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

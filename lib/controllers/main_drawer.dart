@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);
 
-  Widget buildListTile(String title, IconData icon) {
+  Widget buildListTile(BuildContext context, String title, IconData icon) {
     return ListTile(
       leading: Icon(
         icon,
@@ -12,14 +12,11 @@ class MainDrawer extends StatelessWidget {
       title: Text(
         title,
         style: const TextStyle(
-          fontFamily: 'RobotoCondensed',
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {
-        // ...
-      },
+      onTap: () => Navigator.of(context).pushNamed('/'),
     );
   }
 
@@ -35,7 +32,7 @@ class MainDrawer extends StatelessWidget {
             alignment: Alignment.centerLeft,
             color: Colors.lightGreenAccent,
             child: Text(
-              'Select Category',
+              'Back Home',
               style: TextStyle(
                   fontWeight: FontWeight.w900,
                   fontSize: 30,
@@ -46,10 +43,11 @@ class MainDrawer extends StatelessWidget {
             height: 20,
           ),
           buildListTile(
-            'Health',
-            Icons.handyman_outlined,
+            context,
+            'Home',
+            Icons.home_filled,
           ),
-          buildListTile(
+          /* buildListTile(
             'Wellness',
             Icons.access_alarm_rounded,
           ),
@@ -84,7 +82,7 @@ class MainDrawer extends StatelessWidget {
           buildListTile(
             'Environment',
             Icons.event_available,
-          ),
+          ), */
         ],
       ),
     );

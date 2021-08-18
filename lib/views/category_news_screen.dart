@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_extended/controllers/main_drawer.dart';
 import '../dummy_data.dart';
 import '../controllers/news_item.dart';
 
@@ -20,6 +21,7 @@ class CategoryNewsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(categoryTitle!),
       ),
+      drawer: const MainDrawer(),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return NewsItem(
