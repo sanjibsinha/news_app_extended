@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_extended/views/local_news.dart';
 import '../views/tabs_screen.dart';
 import '../views/category_news_screen.dart';
 import '../views/news_detail_screen.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => const TabsScreen(),
         CategoryNewsScreen.routeName: (ctx) => const CategoryNewsScreen(),
         NewsDetailScreen.routeName: (ctx) => const NewsDetailScreen(),
+        LocalNews.routeName: (ctx) => const LocalNews(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(

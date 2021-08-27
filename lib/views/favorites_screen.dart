@@ -1,13 +1,81 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app_extended/views/local_news.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return _textController();
+    return _richTextController(context);
   }
 }
+
+Widget _richTextController(BuildContext context) => Container(
+      color: Colors.black12,
+      padding: const EdgeInsets.all(10),
+      child: Center(
+        child: RichText(
+          text: TextSpan(
+            text: 'This News App is inspired by the principle of free'
+                ' Journalism. You can select ',
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            children: [
+              TextSpan(
+                text: 'Local',
+                style: const TextStyle(
+                  color: Colors.deepOrange,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.of(context).pushNamed(LocalNews.routeName);
+                  },
+              ),
+              const TextSpan(
+                text: ' to ',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextSpan(
+                text: 'Global,',
+                style: const TextStyle(
+                  color: Colors.deepOrange,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.underline,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    //
+                  },
+              ),
+              const TextSpan(
+                text: ' news, and not only that, you can take part as a'
+                    ' Citizen Journalist to publish your story.',
+                style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+
+
+/*
 
 Widget _textController() => Center(
       child: Column(
@@ -77,3 +145,4 @@ Widget _textController() => Center(
         ],
       ),
     );
+*/
